@@ -1,0 +1,11 @@
+node_modules/
+*.tsbuildinfo
+.playwright-mcp/
+__pycache__/
+*.pyc
+
+# The prop tools' build output and logs (tools/props/readme.md), and the Poly Haven maps
+# tools/props/textures/fetch.mjs downloads. meta.json records which maps they are, and stays.
+tools/props/cache/
+tools/props/textures/maps/*
+!tools/props/textures/maps/meta.json

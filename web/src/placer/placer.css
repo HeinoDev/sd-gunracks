@@ -1,0 +1,313 @@
+/* The placer's strip: the keys down the left, where the rack is and what is switched on along the
+   bottom, and how far a drag has gone at the top. Nothing on it takes the mouse. */
+
+.pl-root {
+  --pl-text-1: #ededef;
+  --pl-text-2: #a0a0a8;
+  --pl-text-3: #6e6e76;
+  --pl-text-4: #4a4a52;
+  --pl-hairline: rgba(255, 255, 255, 0.07);
+  --pl-hairline-strong: rgba(255, 255, 255, 0.11);
+  --pl-ok: #3ecf73;
+  --pl-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  position: fixed;
+  inset: 0;
+  z-index: 760;
+  pointer-events: none;
+  color: var(--pl-text-1);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pl-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+.pl-kbd {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 4px;
+  border: 1px solid var(--pl-hairline-strong);
+  font-size: 10.5px;
+  color: var(--pl-text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.pl-kbd.strong {
+  background: var(--pl-text-1);
+  color: #0c0d0f;
+  border-color: var(--pl-text-1);
+}
+
+/* The keys, down the left. */
+.pl-keys-card {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 236px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  background: rgba(18, 19, 22, 0.9);
+  border: 1px solid var(--pl-hairline-strong);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  animation: pl-fade 0.14s ease-out;
+}
+
+.pl-label {
+  margin-bottom: 4px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--pl-text-3);
+}
+
+.pl-gap {
+  height: 6px;
+}
+
+.pl-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 24px;
+  color: var(--pl-text-2);
+}
+
+.pl-hint .on {
+  color: var(--pl-text-1);
+}
+
+.pl-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: var(--pl-ok);
+}
+
+.pl-keys {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* How far a drag has gone, at the top. */
+.pl-readout-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 40px;
+  display: flex;
+  justify-content: center;
+  animation: pl-fade 0.14s ease-out;
+}
+
+.pl-readout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: rgba(18, 19, 22, 0.94);
+  border: 1px solid var(--pl-hairline-strong);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pl-readout-handle {
+  font-size: 12px;
+  color: var(--pl-text-3);
+}
+
+.pl-readout-value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Where it is and what is on, along the bottom, with what is wrong above it. */
+.pl-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.pl-bottom-inner {
+  width: min(860px, calc(100vw - 48px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: pl-rise 0.16s var(--pl-ease);
+}
+
+.pl-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  background: rgba(40, 30, 12, 0.94);
+  border: 1px solid rgba(229, 163, 59, 0.45);
+  color: #f3c77a;
+  animation: pl-fade 0.14s ease-out;
+}
+
+.pl-bar {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(18, 19, 22, 0.94);
+  border: 1px solid var(--pl-hairline-strong);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.pl-bar-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--pl-hairline);
+}
+
+.pl-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pl-handle {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--pl-text-1);
+}
+
+.pl-axes {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pl-axis {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.pl-axis-name {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pl-axis .pl-mono {
+  font-size: 12.5px;
+}
+
+.pl-bar-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+}
+
+.pl-mode {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--pl-text-3);
+  border: 1px solid var(--pl-hairline);
+  transition: background 0.15s, color 0.15s;
+}
+
+.pl-mode.on {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--pl-text-1);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.pl-mode-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pl-text-4);
+}
+
+.pl-mode.on .pl-mode-dot {
+  background: var(--pl-ok);
+}
+
+.pl-actions {
+  margin-left: auto;
+  padding-left: 12px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.pl-cancel,
+.pl-confirm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pl-cancel {
+  color: var(--pl-text-3);
+}
+
+.pl-confirm {
+  font-weight: 500;
+}
+
+/* Where the rack is now it may not go down: Enter does nothing until the warnings above clear. */
+.pl-confirm.off {
+  color: var(--pl-text-4);
+}
+
+@keyframes pl-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pl-rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

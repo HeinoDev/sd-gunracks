@@ -1,0 +1,331 @@
+{
+ "oak": {
+  "asset": "oak_veneer_01",
+  "name": "Oak Veneer 01",
+  "used_for": "golden oak: the floor rack",
+  "page": "https://polyhaven.com/a/oak_veneer_01",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Jenelle van Heerden"
+  ],
+  "dimensions_mm": [
+   1830.0000429153442,
+   1830.0000429153442
+  ],
+  "maps": {
+   "diff": {
+    "file": "oak_diff.jpg",
+    "bytes": 2831117,
+    "from": "oak_veneer_01_diff_2k.jpg"
+   },
+   "nor": {
+    "file": "oak_nor.jpg",
+    "bytes": 2429019,
+    "from": "oak_veneer_01_nor_gl_2k.jpg"
+   },
+   "rough": {
+    "file": "oak_rough.jpg",
+    "bytes": 3968436,
+    "from": "oak_veneer_01_rough_2k.jpg"
+   }
+  }
+ },
+ "walnut": {
+  "asset": "smoked_walnut_veneer",
+  "name": "Smoked Walnut Veneer",
+  "used_for": "walnut: the wall rack, the pistol board frame, the heritage plaque",
+  "page": "https://polyhaven.com/a/smoked_walnut_veneer",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Jenelle van Heerden"
+  ],
+  "dimensions_mm": [
+   1000,
+   1000
+  ],
+  "maps": {
+   "diff": {
+    "file": "walnut_diff.jpg",
+    "bytes": 2136850,
+    "from": "smoked_walnut_veneer_diff_2k.jpg"
+   },
+   "nor": {
+    "file": "walnut_nor.jpg",
+    "bytes": 1679452,
+    "from": "smoked_walnut_veneer_nor_gl_2k.jpg"
+   },
+   "rough": {
+    "file": "walnut_rough.jpg",
+    "bytes": 1594339,
+    "from": "smoked_walnut_veneer_rough_2k.jpg"
+   }
+  }
+ },
+ "barn": {
+  "asset": "rough_wood",
+  "name": "Rough Wood",
+  "used_for": "weathered boards: the pipe rack",
+  "page": "https://polyhaven.com/a/rough_wood",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "dimensions_mm": [
+   500,
+   500
+  ],
+  "maps": {
+   "diff": {
+    "file": "barn_diff.jpg",
+    "bytes": 2223327,
+    "from": "rough_wood_diff_2k.jpg"
+   },
+   "nor": {
+    "file": "barn_nor.jpg",
+    "bytes": 2520021,
+    "from": "rough_wood_nor_gl_2k.jpg"
+   },
+   "rough": {
+    "file": "barn_rough.jpg",
+    "bytes": 810338,
+    "from": "rough_wood_rough_2k.jpg"
+   }
+  }
+ },
+ "felt": {
+  "asset": "velour_velvet",
+  "name": "Velour Velvet",
+  "used_for": "felt / flocking in notches, cradles and the pistol board (recoloured)",
+  "page": "https://polyhaven.com/a/velour_velvet",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "colormass",
+   "Rico Cilliers"
+  ],
+  "dimensions_mm": [
+   284.22817052147235,
+   273.499995470047
+  ],
+  "maps": {
+   "diff": {
+    "file": "felt_diff.jpg",
+    "bytes": 735556,
+    "from": "velour_velvet_diff_1k.jpg"
+   },
+   "nor": {
+    "file": "felt_nor.jpg",
+    "bytes": 695985,
+    "from": "velour_velvet_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "felt_rough.jpg",
+    "bytes": 943960,
+    "from": "velour_velvet_rough_1k.jpg"
+   }
+  }
+ },
+ "leather": {
+  "asset": "brown_leather",
+  "name": "Brown Leather",
+  "used_for": "leather pads and straps",
+  "page": "https://polyhaven.com/a/brown_leather",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "dimensions_mm": [
+   400.0000059604645,
+   400.00003576278687
+  ],
+  "maps": {
+   "diff": {
+    "file": "leather_diff.jpg",
+    "bytes": 503348,
+    "from": "brown_leather_albedo_1k.jpg"
+   },
+   "nor": {
+    "file": "leather_nor.jpg",
+    "bytes": 863280,
+    "from": "brown_leather_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "leather_rough.jpg",
+    "bytes": 686142,
+    "from": "brown_leather_rough_1k.jpg"
+   }
+  }
+ },
+ "paint": {
+  "asset": "blue_metal_plate",
+  "name": "Blue Metal Plate",
+  "used_for": "scratches and smudges of painted sheet steel: powder coat (recoloured)",
+  "page": "https://polyhaven.com/a/blue_metal_plate",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "dimensions_mm": [
+   2500,
+   2500
+  ],
+  "maps": {
+   "diff": {
+    "file": "paint_diff.jpg",
+    "bytes": 1518621,
+    "from": "blue_metal_plate_diff_2k.jpg"
+   },
+   "nor": {
+    "file": "paint_nor.jpg",
+    "bytes": 948237,
+    "from": "blue_metal_plate_nor_gl_2k.jpg"
+   },
+   "rough": {
+    "file": "paint_rough.jpg",
+    "bytes": 1588770,
+    "from": "blue_metal_plate_rough_2k.jpg"
+   }
+  }
+ },
+ "steel": {
+  "asset": "metal_plate_02",
+  "name": "Metal Plate 02",
+  "used_for": "worn steel: pipes, fittings, hardware",
+  "page": "https://polyhaven.com/a/metal_plate_02",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "dimensions_mm": [
+   2000,
+   2000
+  ],
+  "maps": {
+   "diff": {
+    "file": "steel_diff.jpg",
+    "bytes": 625917,
+    "from": "metal_plate_02_diff_1k.jpg"
+   },
+   "nor": {
+    "file": "steel_nor.jpg",
+    "bytes": 183264,
+    "from": "metal_plate_02_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "steel_rough.jpg",
+    "bytes": 911772,
+    "from": "metal_plate_02_rough_1k.jpg"
+   }
+  }
+ },
+ "galvanised": {
+  "asset": "corrugated_iron",
+  "name": "Corrugated Iron",
+  "used_for": "mill-scale / galvanised mottle: the steel panel",
+  "page": "https://polyhaven.com/a/corrugated_iron",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Jenelle van Heerden",
+   "Dimitrios Savva"
+  ],
+  "dimensions_mm": [
+   1120.0000047683716,
+   1120.0000047683716
+  ],
+  "maps": {
+   "diff": {
+    "file": "galvanised_diff.jpg",
+    "bytes": 719557,
+    "from": "corrugated_iron_diff_1k.jpg"
+   },
+   "nor": {
+    "file": "galvanised_nor.jpg",
+    "bytes": 755185,
+    "from": "corrugated_iron_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "galvanised_rough.jpg",
+    "bytes": 455677,
+    "from": "corrugated_iron_rough_1k.jpg"
+   }
+  }
+ },
+ "grain": {
+  "asset": "rubberized_track",
+  "name": "Rubberized Track",
+  "used_for": "moulded rubber and plastic grain: rubber dip, pads, end caps",
+  "page": "https://polyhaven.com/a/rubberized_track",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Charlotte Baglioni"
+  ],
+  "dimensions_mm": [
+   2000,
+   2000
+  ],
+  "maps": {
+   "diff": {
+    "file": "grain_diff.jpg",
+    "bytes": 768955,
+    "from": "rubberized_track_diff_1k.jpg"
+   },
+   "nor": {
+    "file": "grain_nor.jpg",
+    "bytes": 1162333,
+    "from": "rubberized_track_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "grain_rough.jpg",
+    "bytes": 235053,
+    "from": "rubberized_track_rough_1k.jpg"
+   }
+  }
+ },
+ "grime": {
+  "asset": "dirty_concrete",
+  "name": "Dirty Concrete",
+  "used_for": "breaks up the grime baked into every recess",
+  "page": "https://polyhaven.com/a/dirty_concrete",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Rob Tuytel"
+  ],
+  "dimensions_mm": [
+   3000,
+   3000
+  ],
+  "maps": {
+   "diff": {
+    "file": "grime_diff.jpg",
+    "bytes": 666452,
+    "from": "dirty_concrete_diff_1k.jpg"
+   },
+   "nor": {
+    "file": "grime_nor.jpg",
+    "bytes": 350169,
+    "from": "dirty_concrete_nor_gl_1k.jpg"
+   },
+   "rough": {
+    "file": "grime_rough.jpg",
+    "bytes": 276785,
+    "from": "dirty_concrete_rough_1k.jpg"
+   }
+  }
+ },
+ "studio": {
+  "asset": "studio_small_09",
+  "name": "Studio Small 09",
+  "used_for": "the light of the check renders (as the icons)",
+  "page": "https://polyhaven.com/a/studio_small_09",
+  "licence": "CC0 1.0 Universal (public domain), Poly Haven",
+  "authors": [
+   "Sergej Majboroda"
+  ],
+  "type": "hdri",
+  "maps": {
+   "hdr": {
+    "file": "studio.hdr",
+    "bytes": 6312947
+   }
+  }
+ }
+}

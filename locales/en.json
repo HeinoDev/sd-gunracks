@@ -1,0 +1,133 @@
+{
+  "title": "Gun Rack",
+
+  "err": {
+    "too_fast": "Slow down.",
+    "no_rack": "That rack is not here any more.",
+    "too_far": "You are too far from the rack.",
+    "bad_slot": "That slot does not exist.",
+    "slot_taken": "That slot is already taken.",
+    "slot_empty": "There is no gun in that slot.",
+    "no_weapon": "You do not have that gun on you.",
+    "not_weapon": "That is not a gun.",
+    "blacklisted": "That gun cannot go on a rack.",
+    "no_fit": "That gun does not fit this slot.",
+    "remove_failed": "Could not take the gun out of your inventory.",
+    "save_failed": "Something went wrong saving the rack. Nothing was changed.",
+    "cannot_carry": "You cannot carry that.",
+    "no_access": "This rack is locked.",
+    "not_owner": "This is not your rack.",
+    "not_empty": "Take the guns off the rack first.",
+    "bad_model": "That rack is not set up on this server.",
+    "no_identity": "Your character is not loaded yet.",
+    "place_jobs": "You are not allowed to put gun racks down.",
+    "place_limit": "You already own %d gun racks.",
+    "no_placement": "Use the rack item again to place it.",
+    "bad_spot": "You cannot put a rack there.",
+    "too_far_place": "That spot is too far from you.",
+    "spot_too_close": "Too close to another rack.",
+    "spot_overlap": "That would overlap another rack.",
+    "spot_no_model": "That rack is not set up on this server.",
+    "no_item": "You no longer have the rack item.",
+    "not_police": "Only police can seize guns.",
+    "force_disabled": "This lock cannot be forced.",
+    "force_not_locked": "This rack is not locked.",
+    "force_not_needed": "You can already open this rack.",
+    "force_no_item": "You need a %s.",
+    "force_busy": "You are already working on a lock.",
+    "force_failed": "The lock held.",
+    "admin_only": "Staff only.",
+    "rack_busy": "Someone is using that rack right now. Try again.",
+    "no_player": "No player with that id.",
+    "bad_request": "That request did not make sense to the server.",
+    "bad_access": "Each line needs a job or gang name (letters, digits, _ - .) and a grade from 0, at most %d of each.",
+    "no_character": "No character with that citizen id.",
+    "no_identity_target": "That player has no character loaded.",
+    "already_owner": "That rack is already theirs.",
+    "delete_disabled": "Deleting racks from the console is switched off on this server.",
+    "console_failed": "That did not work: the server hit an error (see its console).",
+    "logs_unreadable": "The log table could not be read.",
+    "no_answer": "No answer came back from the server.",
+    "console_closed": "The console is not open."
+  },
+
+  "target": {
+    "store_generic": "Rack your weapon",
+    "store": "Rack %s",
+    "choose": "Choose weapon... (%s)",
+    "take_generic": "Take weapon",
+    "take": "Take %s",
+    "seize_generic": "Seize weapon",
+    "seize": "Seize %s",
+    "inspect": "Inspect",
+    "lock": "Lock rack",
+    "unlock": "Unlock and share (anyone nearby can use it)",
+    "pickup": "Pick rack up",
+    "force": "Force the lock",
+    "slot": "Slot"
+  },
+
+  "progress": {
+    "store": "Racking %s",
+    "take": "Taking %s",
+    "seize": "Seizing %s",
+    "pickup": "Taking the rack down"
+  },
+
+  "notify": {
+    "stored": "%s racked.",
+    "no_weapons": "You carry nothing that fits this slot.",
+    "taken": "Took %s.",
+    "seized": "Seized %s.",
+    "locked": "Rack locked.",
+    "unlocked": "Rack unlocked. Anyone nearby can use it now.",
+    "picked_up": "Rack picked up.",
+    "forced": "The lock gives.",
+    "force_broke": "The lock held, and your tool broke.",
+    "force_failed": "The lock held."
+  },
+
+  "menu": {
+    "choose_title": "Choose a weapon",
+    "weapon_desc": "Ammo %d - serial %s",
+    "no_serial": "none"
+  },
+
+  "inspect": {
+    "serial": "Serial",
+    "ammo": "Ammo",
+    "condition": "Condition",
+    "attachments": "Attachments",
+    "none": "None",
+    "racked_by": "Racked by",
+    "racked_at": "%s on %s",
+    "unknown": "Unknown"
+  },
+
+  "placement": {
+    "no_surface": "Nothing under it to stand on.",
+    "need_wall": "Not flat on a wall: put it against one, %s flattens it onto the wall behind.",
+    "need_floor": "Too steep here for this rack.",
+    "need_surface": "Too steep here: it goes on a floor or a table.",
+    "floating": "Floating %s m off the floor: %s puts it down.",
+    "sunk": "Sunk into what is under it: %s puts it on top.",
+    "no_wall_behind": "There is no wall right behind it.",
+    "too_far": "Too far from you.",
+    "overlap": "Overlaps another rack.",
+    "cancelled": "Placement cancelled.",
+    "placed": "%s placed.",
+    "already": "You are already placing a rack.",
+    "key_select": "Gun rack placement: grab the gizmo",
+    "key_move": "Gun rack placement: move mode",
+    "key_rotate": "Gun rack placement: rotate mode",
+    "key_turn_left": "Gun rack placement: turn left",
+    "key_turn_right": "Gun rack placement: turn right",
+    "key_look": "Gun rack placement: hold to look around",
+    "key_axes": "Gun rack placement: local / world axes"
+  },
+
+  "admin": {
+    "command_help": "Gun rack staff console",
+    "delete_partial": "Returned %d guns, %d did not fit in your inventory. The rack was kept with those."
+  }
+}

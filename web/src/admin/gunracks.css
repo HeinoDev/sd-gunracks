@@ -1,0 +1,325 @@
+/* The console's rules that only gun racks need, on top of admin.css. Everything here is a gr-*
+   class, or a .ga-* one only where a rack needs one more thing from it, and uses admin.css's
+   tokens, so the console stays the one panel. */
+
+/* ---- the lists ---- */
+
+/* The commit row sits under the rack's heading, not under a card, so it needs no rule above it. */
+.ga-hu-commit.gr-commit {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.gr-owner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 200px;
+}
+
+.gr-where {
+  max-width: 260px;
+}
+
+.gr-where .ga-truncate {
+  display: block;
+}
+
+.gr-model-pick {
+  width: 220px;
+}
+
+.gr-field-pick {
+  width: 150px;
+}
+
+.gr-model-pick .ga-dropdown-trigger,
+.gr-field-pick .ga-dropdown-trigger {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.ga-table tbody tr.gr-link,
+.ga-ov-recent-row.gr-link {
+  cursor: pointer;
+}
+
+/* How full a rack is: a short bar and the count beside it. */
+.gr-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.gr-fill-track {
+  width: 56px;
+  height: 5px;
+  border-radius: 99px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.gr-fill-bar {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background-color: var(--accent);
+  opacity: 0.8;
+}
+
+.gr-fill-bar.full {
+  background-color: var(--amber);
+}
+
+/* ---- one rack ---- */
+
+.gr-pic {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background-color: var(--surface-raised);
+  object-fit: contain;
+}
+
+.ga-table.gr-slots th,
+.ga-table.gr-slots td {
+  text-align: left;
+}
+
+.ga-table.gr-slots td.num,
+.ga-table.gr-slots td.ga-hu-act {
+  text-align: right;
+}
+
+.gr-attach {
+  max-width: 220px;
+  color: var(--text-mid);
+  white-space: normal;
+}
+
+.gr-empty-slot {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.gr-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gr-inline .ga-input {
+  flex: 1;
+}
+
+/* ---- the access list: jobs and gangs, a line each ---- */
+
+.gr-access {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.gr-access-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.gr-access-head .ga-field-label {
+  margin: 0;
+}
+
+.gr-access-none {
+  padding: 8px 0;
+  color: var(--text-faint);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.gr-access-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.gr-access-row .ga-input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+}
+
+.gr-access-row .ga-input.gr-access-grade {
+  flex: 0 0 56px;
+  text-align: center;
+}
+
+.gr-access-from {
+  flex-shrink: 0;
+  color: var(--text-dim);
+  font-size: 11.5px;
+}
+
+/* ---- the Place tab: the models down the left, what to place and the give form down the right ---- */
+
+.gr-place {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.gr-models {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
+  gap: 10px;
+}
+
+.gr-model {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-0);
+  color: var(--text-body);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.gr-model:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-2);
+}
+
+.gr-model.on {
+  border-color: var(--accent-line-strong);
+  background: var(--surface-raised);
+}
+
+.gr-model img {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 6px;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.gr-model-name {
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.gr-model-meta {
+  color: var(--text-dim);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.gr-place-blurb {
+  margin: 0 0 14px;
+  color: var(--text-body);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.gr-place-go {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gr-place-what {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.gr-place-what b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.gr-place-what svg {
+  vertical-align: -1px;
+}
+
+/* ---- giving a rack item ---- */
+
+.gr-give {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.gr-give .ga-field-label {
+  margin: 0 0 5px;
+}
+
+.gr-stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gr-stepper .ga-input {
+  width: 56px;
+  text-align: center;
+}
+
+.gr-give-btn {
+  height: 34px;
+}
+
+.ga-stat-grid.gr-stats-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ---- the log's pages ---- */
+
+.gr-pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 10px 16px;
+  border-top: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.gr-pager-page {
+  margin-right: 4px;
+}
+
+.ga-table .gr-log-rack {
+  width: 64px;
+}
+
+.gr-rack-link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.gr-rack-link:hover {
+  text-decoration: underline;
+}
