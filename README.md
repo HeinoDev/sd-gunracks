@@ -13,7 +13,7 @@ sd-gunracks adds ten gun racks to FiveM that players place themselves: on the fl
 ![Inventory](https://img.shields.io/badge/Inventory-auto--detected-3b82f6)
 ![Target](https://img.shields.io/badge/Target-ox__target%20%7C%20qb--target%20%7C%20sd--interact-3b82f6)
 
-[**Store**](https://fivem.samueldev.shop) · [**Discord**](https://discord.gg/FzPehMQaBQ)
+[**Download**](https://github.com/Samuels-Development/sd-gunracks/releases/latest) · [**Store**](https://fivem.samueldev.shop) · [**Discord**](https://discord.gg/FzPehMQaBQ)
 
 **Works together:** **sd-gunracks** · [**sd-interact**](https://github.com/Samuels-Development/sd-interact)
 
@@ -98,6 +98,11 @@ Racks follow routing buckets: players only see and use the racks in their own bu
 
 ## Installation
 
+Download **`sd-gunracks.zip`** from the [latest release](https://github.com/Samuels-Development/sd-gunracks/releases/latest) and unzip it into your resources folder: it is the resource with its console already built, ready to drop in.
+
+> [!IMPORTANT]
+> Download the `sd-gunracks.zip` asset, not **Source code (zip)** or the green **Code** button. Those are the source, without the built console: `/gunracks` and the placer's strip would show nothing until you [build it yourself](#building-from-source).
+
 It needs OneSync, [ox_lib](https://github.com/CommunityOx/ox_lib) and [oxmysql](https://github.com/CommunityOx/oxmysql). Start them, your framework, your inventory and your target first:
 
 ```cfg
@@ -170,16 +175,18 @@ On failure the second value is one of `bad_model`, `bad_coords`, `too_close`, `o
 
 ## For developers
 
-### The console
+### Building from source
 
-The staff console and the placer's strip are a React page in `web/`. The built page ships in `web/build`.
+The repository is the source: the built console (`web/build`) is not committed, and each [release](https://github.com/Samuels-Development/sd-gunracks/releases) builds it into its zip. The staff console and the placer's strip are a React page in `web/`. To run a clone, or after changing the page, build it with Node.js (LTS):
 
 ```bash
 cd web
 npm ci
-npm run dev     # in a browser with sample data: /?admin for the console, /?placer for the strip
 npm run build   # what the game serves (web/build)
+npm run dev     # in a browser with sample data: /?admin for the console, /?placer for the strip
 ```
+
+A source zip unpacks to `sd-gunracks-main`: rename the folder to `sd-gunracks`, the name its exports are called by.
 
 ### Rebuilding the racks
 

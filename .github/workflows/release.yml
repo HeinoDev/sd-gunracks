@@ -1,0 +1,91 @@
+name: Release
+
+# Fires when a GitHub Release is published (Releases > Draft a new release > Publish).
+# Builds the console and the placer's strip fresh and attaches a drop-in resource zip to that release.
+on:
+  release:
+    types: [published]
+  # Re-package an already published release without unpublishing it, for when the
+  # packaging itself was wrong rather than the code.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to package (e.g. v1.0.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: build + package
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build the page
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      # Explicit allowlist of runtime files -> dist/sd-gunracks/ so the zip extracts to a correctly
+      # named resource folder. web/src, node_modules, tools/ (the Blender prop pipeline), tests/ and
+      # the README pictures (docs/) are left out. data/ holds racks.json, the slots and weapon fits.
+      - name: Stage resource
+        run: |
+          mkdir -p dist/sd-gunracks/web
+          cp fxmanifest.lua README.md LICENSE THIRD_PARTY_NOTICES.md items.md dist/sd-gunracks/
+          cp -r bridge client server shared configs locales images stream data dist/sd-gunracks/
+          cp -r web/build dist/sd-gunracks/web/build
+
+      # The staging list above is an allowlist, so a new top-level directory would be dropped from
+      # the zip in silence. Every path fxmanifest.lua declares has to be in the staged resource, or
+      # the build fails here instead of on a server.
+      - name: Verify staged resource
+        run: |
+          missing=0
+          paths=$(grep -oE "'[^']+\.(lua|json|html|js|css|png|jpg|webp|svg|woff2?|mp3|ytyp)'" fxmanifest.lua \
+            | tr -d "'" | grep -v '^@' | sed 's|/\*\*.*||; s|/\*.*||' | sort -u)
+          for p in $paths; do
+            if [ ! -e "dist/sd-gunracks/$p" ]; then
+              echo "::error::fxmanifest.lua declares '$p' but it is not in the staged resource"
+              missing=1
+            fi
+          done
+          # configs/server is read with require() on the server only, so the manifest never names it;
+          # the .ydr models stream from stream/ without being listed.
+          for p in configs/server web/build/index.html stream/sd_gunrack_oak.ydr data/racks.json; do
+            if [ ! -e "dist/sd-gunracks/$p" ]; then
+              echo "::error::$p is not in the staged resource"
+              missing=1
+            fi
+          done
+          if [ "$missing" != 0 ]; then
+            echo "Staged resource is incomplete - add the missing path to the Stage resource step."
+            exit 1
+          fi
+          echo "All fxmanifest paths present:"
+          echo "$paths"
+
+      # Named without the tag so the download URL and the extracted folder read the same on every
+      # release. The release itself carries the version.
+      - name: Zip
+        run: |
+          cd dist
+          zip -qr ../sd-gunracks.zip sd-gunracks
+
+      - name: Attach to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${TAG}" sd-gunracks.zip --clobber

@@ -9,3 +9,7 @@ __pycache__/
 tools/props/cache/
 tools/props/textures/maps/*
 !tools/props/textures/maps/meta.json
+
+# The built page. Each release builds it into its zip (.github/workflows/release.yml); to run a
+# clone, `npm run build` in web/.
+web/build/
