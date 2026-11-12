@@ -1,0 +1,133 @@
+{
+  "title": "Våbenstativ",
+
+  "err": {
+    "too_fast": "Tag det roligt.",
+    "no_rack": "Det stativ er her ikke længere.",
+    "too_far": "Du er for langt fra stativet.",
+    "bad_slot": "Den plads findes ikke.",
+    "slot_taken": "Pladsen er allerede optaget.",
+    "slot_empty": "Der er ikke noget våben på pladsen.",
+    "no_weapon": "Du har ikke det våben på dig.",
+    "not_weapon": "Det er ikke et våben.",
+    "blacklisted": "Det våben må ikke hænge på et stativ.",
+    "no_fit": "Våbnet passer ikke på pladsen.",
+    "remove_failed": "Våbnet kunne ikke fjernes fra dit inventar.",
+    "save_failed": "Stativet kunne ikke gemmes. Intet blev ændret.",
+    "cannot_carry": "Du kan ikke bære det.",
+    "no_access": "Stativet er låst.",
+    "not_owner": "Stativet er ikke dit.",
+    "not_empty": "Tag våbnene ned fra stativet først.",
+    "bad_model": "Stativet er ikke sat op på denne server.",
+    "no_identity": "Din karakter er ikke indlæst endnu.",
+    "place_jobs": "Du må ikke stille våbenstativer op.",
+    "place_limit": "Du ejer allerede %d våbenstativer.",
+    "no_placement": "Brug stativgenstanden igen for at stille det op.",
+    "bad_spot": "Du kan ikke stille et stativ her.",
+    "too_far_place": "Du er for langt fra stedet.",
+    "spot_too_close": "Det er for tæt på et andet stativ.",
+    "spot_overlap": "Det ville overlappe et andet stativ.",
+    "spot_no_model": "Stativet er ikke sat op på denne server.",
+    "no_item": "Du har ikke længere stativgenstanden.",
+    "not_police": "Kun politiet kan beslaglægge våben.",
+    "force_disabled": "Denne lås kan ikke dirkes op.",
+    "force_not_locked": "Stativet er ikke låst.",
+    "force_not_needed": "Du kan allerede åbne stativet.",
+    "force_no_item": "Du skal bruge en %s.",
+    "force_busy": "Du er allerede i gang med en lås.",
+    "force_failed": "Låsen holdt.",
+    "admin_only": "Kun for personale.",
+    "rack_busy": "Nogen bruger stativet lige nu. Prøv igen.",
+    "no_player": "Der er ingen spiller med det id.",
+    "bad_request": "Serveren forstod ikke anmodningen.",
+    "bad_access": "Hver linje skal have et job- eller bandenavn (bogstaver, tal, _ - .) og en grad fra 0. Højst %d af hver.",
+    "no_character": "Der er ingen karakter med det borger-id.",
+    "no_identity_target": "Spillerens karakter er ikke indlæst.",
+    "already_owner": "Stativet tilhører allerede spilleren.",
+    "delete_disabled": "Sletning af stativer fra konsollen er slået fra på denne server.",
+    "console_failed": "Det gik galt: serveren stødte på en fejl (se konsollen).",
+    "logs_unreadable": "Logtabellen kunne ikke læses.",
+    "no_answer": "Serveren svarede ikke.",
+    "console_closed": "Konsollen er ikke åben."
+  },
+
+  "target": {
+    "store_generic": "Hæng våbnet op",
+    "store": "Hæng %s op",
+    "choose": "Vælg våben... (%s)",
+    "take_generic": "Tag våbnet",
+    "take": "Tag %s",
+    "seize_generic": "Beslaglæg våbnet",
+    "seize": "Beslaglæg %s",
+    "inspect": "Undersøg",
+    "lock": "Lås stativet",
+    "unlock": "Lås op og del (alle i nærheden kan bruge det)",
+    "pickup": "Tag stativet ned",
+    "force": "Dirk låsen op",
+    "slot": "Plads"
+  },
+
+  "progress": {
+    "store": "Hænger %s op",
+    "take": "Tager %s",
+    "seize": "Beslaglægger %s",
+    "pickup": "Tager stativet ned"
+  },
+
+  "notify": {
+    "stored": "%s hængt op.",
+    "no_weapons": "Du har ikke noget våben, der passer her.",
+    "taken": "Tog %s.",
+    "seized": "Beslaglagde %s.",
+    "locked": "Stativet er låst.",
+    "unlocked": "Stativet er låst op. Alle i nærheden kan bruge det.",
+    "picked_up": "Stativet er taget ned.",
+    "forced": "Låsen gav efter.",
+    "force_broke": "Låsen holdt, og dit værktøj gik i stykker.",
+    "force_failed": "Låsen holdt."
+  },
+
+  "menu": {
+    "choose_title": "Vælg et våben",
+    "weapon_desc": "Ammo %d - serienummer %s",
+    "no_serial": "intet"
+  },
+
+  "inspect": {
+    "serial": "Serienummer",
+    "ammo": "Ammo",
+    "condition": "Stand",
+    "attachments": "Tilbehør",
+    "none": "Intet",
+    "racked_by": "Hængt op af",
+    "racked_at": "%s den %s",
+    "unknown": "Ukendt"
+  },
+
+  "placement": {
+    "no_surface": "Der er ikke noget under stativet.",
+    "need_wall": "Det står ikke fladt på væggen. Stil det op ad en; %s lægger det fladt mod væggen bagved.",
+    "need_floor": "Her er for stejlt til stativet.",
+    "need_surface": "Her er for stejlt. Stativet skal stå på gulvet eller et bord.",
+    "floating": "Svæver %s m over gulvet. %s sætter det ned.",
+    "sunk": "Det er sunket ned i underlaget. %s sætter det ovenpå.",
+    "no_wall_behind": "Der er ingen væg lige bagved.",
+    "too_far": "Du er for langt væk.",
+    "overlap": "Overlapper et andet stativ.",
+    "cancelled": "Placering annulleret.",
+    "placed": "%s stillet op.",
+    "already": "Du er allerede ved at stille et stativ op.",
+    "key_select": "Stativplacering: tag fat i gizmoen",
+    "key_move": "Stativplacering: flyttetilstand",
+    "key_rotate": "Stativplacering: rotationstilstand",
+    "key_turn_left": "Stativplacering: drej til venstre",
+    "key_turn_right": "Stativplacering: drej til højre",
+    "key_look": "Stativplacering: hold for at kigge rundt",
+    "key_axes": "Stativplacering: lokale akser / verdensakser"
+  },
+
+  "admin": {
+    "command_help": "Personalekonsol til våbenstativer",
+    "delete_partial": "%d våben returneret. %d kunne ikke være i dit inventar. Stativet blev beholdt med dem."
+  }
+}
