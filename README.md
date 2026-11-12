@@ -2,7 +2,7 @@
 
 # sd-gunracks
 
-<img width="960" alt="sd-gunracks banner: a gun room with every rack on its walls and floor" src="docs/previews/sd-gunracks-banner.webp">
+<img width="960" alt="sd-gunracks banner: a gun room straight on, the racks mirrored on both sides" src="docs/previews/sd-gunracks-banner.webp">
 
 sd-gunracks adds ten gun racks to FiveM that players place themselves: on the floor, on a wall or on a table. A rack holds the real weapons from the player's inventory. Each one is drawn in its slot as the game's own model with its attachments and tint, and it keeps its serial, ammo and components until someone takes it back out. Racks lock, open to chosen jobs and gangs, can be forced with a lockpick, and police can seize from them. Staff get a full console.
 
