@@ -85,26 +85,33 @@ export const LogsTab = ({ pollMs, refreshToken, showToast, openRack }: TabProps)
     async (manual = false) => {
       if (manual) setRefreshing(true);
 
-      const resp = await fetchNui('admin:getLogs', {
-        page,
-        size: PAGE_SIZE,
-        kind: kind ?? undefined,
-        q: sent || undefined,
-      });
+      try {
+        const resp = await fetchNui('admin:getLogs', {
+          page,
+          size: PAGE_SIZE,
+          kind: kind ?? undefined,
+          q: sent || undefined,
+        });
 
-      if (!alive.current) return;
+        if (!alive.current) return;
 
-      if (manual) setRefreshing(false);
+        if (isRefused(resp)) {
+          const message = failureOf(resp) ?? 'The server sent nothing back.';
+          setError(message);
+          if (manual) showToast(message, 'error');
+          return;
+        }
 
-      if (isRefused(resp)) {
-        const message = failureOf(resp) ?? 'The server sent nothing back.';
+        setError(null);
+        setData(pageOf(resp));
+      } catch {
+        if (!alive.current) return;
+        const message = 'Could not read the action log. Try again.';
         setError(message);
         if (manual) showToast(message, 'error');
-        return;
+      } finally {
+        if (manual && alive.current) setRefreshing(false);
       }
-
-      setError(null);
-      setData(pageOf(resp));
     },
     [page, kind, sent, showToast],
   );

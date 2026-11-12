@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import type { AccessEntry, RackAccess } from '@/types';
 
@@ -37,6 +38,7 @@ export const AccessEditor = ({
   onChange: (next: RackAccess) => void;
   disabled?: boolean;
 }) => {
+  const id = useId();
   const set = (side: Side, list: AccessEntry[]) => onChange({ ...value, [side]: list });
 
   const update = (side: Side, i: number, patch: Partial<AccessEntry>) =>
@@ -47,7 +49,7 @@ export const AccessEditor = ({
       {SIDES.map(({ side, title, add, placeholder }) => (
         <div key={side} className="gr-access-side">
           <div className="gr-access-head">
-            <span className="ga-field-label">{title}</span>
+            <span className="ga-field-label" id={`${id}-${side}-heading`}>{title}</span>
             <button
               type="button"
               className="ga-btn sm"
@@ -67,11 +69,13 @@ export const AccessEditor = ({
                 <input
                   className="ga-input"
                   value={entry.name}
+                  id={`${id}-${side}-name-${i}`}
                   maxLength={NAME_MAX}
                   spellCheck={false}
                   placeholder={placeholder}
                   disabled={disabled}
-                  aria-label={`${title} name`}
+                  aria-label={i === 0 ? undefined : `${title} name`}
+                  aria-labelledby={i === 0 ? `${id}-${side}-heading` : undefined}
                   onChange={e => update(side, i, { name: e.target.value })}
                 />
                 <span className="gr-access-from">from grade</span>

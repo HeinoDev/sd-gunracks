@@ -44,15 +44,19 @@ export const GiveForm = ({
     if (!Number.isInteger(src) || src <= 0 || !item) return;
 
     setBusy(true);
-    const resp = await fetchNui('admin:giveItem', { target: src, item, count });
-    setBusy(false);
+    try {
+      const resp = await fetchNui('admin:giveItem', { target: src, item, count });
+      const failure = failureOf(resp);
 
-    const failure = failureOf(resp);
+      if (failure) return showToast(failure, 'error');
 
-    if (failure) return showToast(failure, 'error');
-
-    const who = resp?.targetName ?? `player ${src}`;
-    showToast(`Gave ${resp?.count ?? count}x ${resp?.label ?? item} to ${who}.`, 'success');
+      const who = resp?.targetName ?? `player ${src}`;
+      showToast(`Gave ${resp?.count ?? count}x ${resp?.label ?? item} to ${who}.`, 'success');
+    } catch {
+      showToast('Could not give the rack item. Try again.', 'error');
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
@@ -90,7 +94,7 @@ export const GiveForm = ({
             type="button"
             className="ga-btn"
             onClick={() => clamp(count - 1)}
-            disabled={count <= 1}
+            disabled={most < 1 || count <= 1}
             aria-label="One fewer"
           >
             <Minus size={13} />
@@ -101,13 +105,14 @@ export const GiveForm = ({
             min={1}
             max={most}
             value={count}
+            disabled={most < 1}
             onChange={e => clamp(Number(e.target.value))}
           />
           <button
             type="button"
             className="ga-btn"
             onClick={() => clamp(count + 1)}
-            disabled={count >= most}
+            disabled={most < 1 || count >= most}
             aria-label="One more"
           >
             <Plus size={13} />
@@ -115,11 +120,13 @@ export const GiveForm = ({
         </div>
       </div>
 
+      {most < 1 && <div className="ga-field-label">Giving rack items is disabled on this server.</div>}
+
       <button
         type="button"
         className="ga-btn green gr-give-btn"
         onClick={() => void give()}
-        disabled={busy || !target || !item}
+        disabled={busy || most < 1 || !target || !item}
       >
         <Gift size={13} />
         Give

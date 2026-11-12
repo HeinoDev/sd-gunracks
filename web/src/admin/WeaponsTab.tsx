@@ -91,28 +91,35 @@ export const WeaponsTab = ({ refreshToken, racks, showToast, openRack }: TabProp
     async (manual = false) => {
       if (manual) setRefreshing(true);
 
-      const resp = await fetchNui('admin:searchWeapons', { q: sent, field });
+      try {
+        const resp = await fetchNui('admin:searchWeapons', { q: sent, field });
 
-      if (!alive.current) return;
+        if (!alive.current) return;
 
-      if (manual) setRefreshing(false);
+        if (isRefused(resp)) {
+          const message = failureOf(resp) ?? 'The server sent nothing back.';
+          setError(message);
+          if (manual) showToast(message, 'error');
+          return;
+        }
 
-      if (isRefused(resp)) {
-        const message = failureOf(resp) ?? 'The server sent nothing back.';
+        setError(null);
+        setHits(
+          listOf<unknown>(resp.list).flatMap(h => {
+            const hit = hitOf(h);
+            return hit ? [hit] : [];
+          }),
+        );
+        setTotal(numOf(resp.total));
+        setCapped(resp.capped === true);
+      } catch {
+        if (!alive.current) return;
+        const message = 'Could not search stored guns. Try again.';
         setError(message);
         if (manual) showToast(message, 'error');
-        return;
+      } finally {
+        if (manual && alive.current) setRefreshing(false);
       }
-
-      setError(null);
-      setHits(
-        listOf<unknown>(resp.list).flatMap(h => {
-          const hit = hitOf(h);
-          return hit ? [hit] : [];
-        }),
-      );
-      setTotal(numOf(resp.total));
-      setCapped(resp.capped === true);
     },
     [sent, field, showToast],
   );
@@ -134,6 +141,7 @@ export const WeaponsTab = ({ refreshToken, racks, showToast, openRack }: TabProp
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search a weapon, a serial, an owner or who racked it…"
+            aria-label="Search stored weapons"
             spellCheck={false}
           />
           {query && (
